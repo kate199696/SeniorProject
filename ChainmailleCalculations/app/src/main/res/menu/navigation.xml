@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_calc"
+        android:icon="@drawable/ic_baseline_add_box_24px"
+        android:title="Calculator"/>
+
+    <item
+        android:id="@+id/navigation_instructions"
+        android:icon="@drawable/ic_baseline_list_24px"
+        android:title="Instructions"/>
+
+    <item
+        android:id="@+id/navigation_inventory"
+        android:icon="@drawable/ic_baseline_library_books_24px"
+        android:title="Inventory"/>
+</menu>

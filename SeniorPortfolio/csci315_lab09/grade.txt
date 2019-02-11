@@ -1,0 +1,19 @@
+******************* Append Test *********************
+silent mode enabled
++ 25.000 pts of 25.000
+Total grade so far: 25.000
+******************* Equal Test *********************
+silent mode enabled
++ 25.000 pts of 25.000
+Total grade so far: 50.000
+******************* Insert Test *********************
+silent mode enabled
++ 25.000 pts of 25.000
+Total grade so far: 75.000
+******************* Remove Test *********************
+silent mode enabled
++ 25.000 pts of 25.000
+Total grade so far: 100.000
+WARNING: this lab requires an inspection from the Professor.
+The given grade is not final.
+*****************Finished lab09****************

@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">ChainmailleCalculations</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="weave_type">Weave Type:</string>
+    <string-array name="weaves">
+        <item>Spiral</item>
+        <item>Box</item>
+        <item>Shaggy Loops</item>
+    </string-array>
+
+
+    <string name="ring_gauge">Ring Gauge: </string>
+    <string-array name="ring_gauge_array">
+        <item>16</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+
+    <string name="ring_size">Ring Size: </string>
+    <string-array name="ring_gauge16">
+        <item>1/4</item>
+        <item>3/8</item>
+        <item>5/16</item>
+        <item>7/16</item>
+        <item>7/32</item>
+    </string-array>
+    <string-array name="ring_gauge18">
+        <item>1/4</item>
+        <item>1/8</item>
+        <item>3/16</item>
+        <item>5/16</item>
+        <item>5/32</item>
+        <item>7/32</item>
+    </string-array>
+    <string-array name="ring_gauge19">
+        <item>1/4</item>
+        <item>3/16</item>
+        <item>5/32</item>
+        <item>9/64</item>
+    </string-array>
+    <string-array name="ring_gauge20">
+        <item>1/8</item>
+        <item>3/16</item>
+        <item>3/32</item>
+        <item>5/32</item>
+        <item>5/64</item>
+        <item>7/64</item>
+        <item>9/64</item>
+        <item>11/64</item>
+    </string-array>
+
+    <string name="lengthdesired">Length Desired (inches): </string>
+    <string-array name="len_array">
+        <item>1</item>
+        <item>6</item>
+        <item>6.5</item>
+        <item>7</item>
+        <item>7.5</item>
+        <item>8</item>
+        <item>8.5</item>
+        <item>24</item>
+        <item>28</item>
+    </string-array>
+
+
+    <string name="customText">Enter your length in inches: </string>
+    <string name="hintcustom">Example: 22</string>
+    <string name="calbutton">Calculate</string>
+
+    <string name="openRingtext">Open Rings: </string>
+    <string name="closedRingtext">Closed Rings: </string>
+
+    <string name="opencal"></string>
+    <string name="closedcal"></string>
+    <string name="subbutton">Subtract</string>
+    <string name="testing"></string>
+    <string name="ring_size_inv"></string>
+    <string name="count_inv"></string>
+
+    <string name="ringsize_update"></string>
+    <string name="count_update"></string>
+
+    <string name="box">Box Chain Instructions</string>
+    <string name="box_ratio">Suggested Aspect Ratio: 5.0</string>
+    <string name="boxstep1">1. First make a strip of European 4 in 1</string>
+    <string name="boxstep2">2. Fold the last 4 rings so that the 2nd row is overlapping the first</string>
+    <string name="boxstep3">3. Connect a ring through the folded rings</string>
+    <string name="boxstep4">4. Continue to fold the next row of rings into the previous and connect an open ring</string>
+
+
+    <string name="shaggy">Shaggy Loops Instructions</string>
+    <string name="shaggy_ratio">Suggested Aspect Ratio: 2.6</string>
+    <string name="shaggystep1">1. Put 3 rings onto 1 ring</string>
+    <string name="shaggystep2">2. Open 1 ring and put 2 closed rings on it. Leave the open ring open. </string>
+    <string name="shaggystep3">3. Put the open ring through the main ring from step 1 (the one that has the 3 rings on it) then close the ring</string>
+    <string name="shaggystep4">4. Fold the closed rings over so that there is one on either side</string>
+    <string name="shaggystep5">5. Repeat steps 2 through 4</string>
+
+
+    <string name="spiral">Spiral Chain Instructions</string>
+    <string name="spiral_ratio">Suggested Aspect Ratio: 4.0</string>
+    <string name="spiral_warning">WARNING: Spiral chain does not stay twisted if the ends are not connected or fixed to something. If it becomes untwisted while weaving, retwist with your fingers to lay it the proper way again.</string>
+    <string name="spiralstep1">1. Connect 2 rings</string>
+    <string name="spiralstep2">2. Put a third ring through the previous 2 rings</string>
+    <string name="spiralstep3">3. Add another ring through the two previous rings, making sure to keep angling the rings</string>
+    <string name="spiralstep4">4. Repeat step 3 until you have the desired length. You have to connect the ends to keep them from untwisting.</string>
+
+    <string name="citation">Images from "http://www.chainmail101.com/"</string>
+
+
+</resources>

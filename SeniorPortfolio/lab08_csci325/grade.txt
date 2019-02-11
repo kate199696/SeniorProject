@@ -1,0 +1,43 @@
+******************* PART 1 *********************
+JUnit version 4.11
+.
+Time: 0.003
+
+OK (1 test)
+
++ 20.000 pts of 20.000
+Total grade so far: 20.000
+******************* PART 2 *********************
+JUnit version 4.11
+...
+Time: 0.004
+
+OK (3 tests)
+
++ 40.000 pts of 40.000
+Total grade so far: 60.000
+******************* PART 3 *********************
+JUnit version 4.11
+.
+Time: 0.004
+
+OK (1 test)
+
++ 40.000 pts of 40.000
+Total grade so far: 100.000
+******************* PART 4 *********************
+*************COMPILATION ERROR*******************
+tests/MazeTest.java:81: error: cannot find symbol
+        Maze maze = new Maze();
+        ^
+  symbol:   class Maze
+  location: class MazeTest
+tests/MazeTest.java:81: error: cannot find symbol
+        Maze maze = new Maze();
+                        ^
+  symbol:   class Maze
+  location: class MazeTest
+Note: src/csu/csci325/ArrayStack.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+Compilation errors, please fix...

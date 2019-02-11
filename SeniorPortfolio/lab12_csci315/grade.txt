@@ -1,0 +1,17 @@
+******************* Selection Sort PART *********************
+silent mode enabled
++ 30.000 pts of 30.000
+Total grade so far: 30.000
+******************* Insertion Sort PART *********************
+silent mode enabled
++ 30.000 pts of 30.000
+Total grade so far: 60.000
+******************* Sort PART *********************
+silent mode enabled
++ 10.000 pts of 10.000
+Total grade so far: 70.000
+******************* SLList Sort PART *********************
+silent mode enabled
++ 30.000 pts of 30.000
+Total grade so far: 100.000
+*****************Finished lab12****************

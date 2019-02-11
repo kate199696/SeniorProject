@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:id="@+id/WeavetypeRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/weaveTypeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/weave_type" />
+
+        <Spinner
+            android:id="@+id/weavenames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Ring_gaugeRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/WeavetypeRow"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ring_gauge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ring_gauge" />
+
+        <Spinner
+            android:id="@+id/ring_gaugearray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/ring_gauge_array" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ring_sizeRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Ring_gaugeRow"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+
+        >
+
+        <TextView
+            android:id="@+id/ring_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:text="@string/ring_size" />
+
+
+        <Spinner
+            android:id="@+id/ringSizespinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lengthRow"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ring_sizeRow"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/length"
+            android:layout_width="71dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lengthdesired" />
+
+        <Spinner
+            android:id="@+id/lengthSpinner"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/customRow"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lengthRow"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/customtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/customText"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/lengthNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/hintcustom"
+            android:inputType="number"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/calbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customRow"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/calculatebutton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/calbutton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/openRing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calbutton"
+        android:layout_marginBottom="10dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/openRingtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/openRingtext" />
+
+        <TextView
+            android:id="@+id/openCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/opencal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/closedRing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/openRing"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/closedRingtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/closedRingtext" />
+
+        <TextView
+            android:id="@+id/closedCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/closedcal" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/subButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/closedRing"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/subtractButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/subbutton" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subButton"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/testtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/testing" />
+
+    </LinearLayout>
+
+</LinearLayout>
