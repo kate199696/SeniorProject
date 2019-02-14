@@ -106,16 +106,19 @@ public class inventory_tab extends Fragment {
                  public void onClick(View v) {
                      ringInvList.set(position, up);
                      ringInventory test =  ringInvList.get(position);
-
-                     adapter.notifyDataSetChanged();
-
+                     //adapter.notifyDataSetChanged();
                      dialog.dismiss();
+                     mListView.setAdapter(new RingInventoryListAdapter(getActivity(), R.layout.adapter_view_layout, ringInvList));
+
                  }
              });
+
              dialog.show();
+
          }
 
      });
+
      //mListView.invalidate();
      //((RingInventoryListAdapter) mListView.getAdapter()).notifyDataSetChanged();
      //mListView.setAdapter(new RingInventoryListAdapter(getActivity(), R.layout.adapter_view_layout, ringInvList));
@@ -272,7 +275,7 @@ public class inventory_tab extends Fragment {
 
         return view;
     }
-
+    J
 
     private void editList(final ListView listView){
          listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
