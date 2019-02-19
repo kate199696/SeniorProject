@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,23 +73,31 @@ public class inventory_tab extends Fragment {
 */
     MyDBHandler myDb;
 
-
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        }
+    }
 
  @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
        view = inflater.inflate(R.layout.inventory_tab, container, false);
-
+        //ringInvList = null;
+       loadData();
        //Arraylist trial
 
        final ListView mListView = (ListView) view.findViewById(R.id.RingInventory);
-     loadData();
+     //loadData();
      final RingInventoryListAdapter adapter = new RingInventoryListAdapter(getActivity(), R.layout.adapter_view_layout, ringInvList);
      mListView.setAdapter(adapter);
      //editList(mListView);
      mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
          public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+            loadData();
             ringInventory upd = ringInvList.get(position);
              final Dialog dialog=new Dialog(getContext());
              dialog.setTitle("Update inventory");
@@ -97,18 +106,22 @@ public class inventory_tab extends Fragment {
              String count = upd.getCount();
              TextView txtRS = dialog.findViewById(R.id.ringSize_result);
              txtRS.setText(rs);
-             EditText txtCount = dialog.findViewById(R.id.count_result);
+             final EditText txtCount = dialog.findViewById(R.id.count_result);
              txtCount.setText(count);
-             final ringInventory up = new ringInventory(rs, txtCount.getText().toString());
+
              Button bt = dialog.findViewById(R.id.updateButton);
              bt.setOnClickListener(new View.OnClickListener() {
                  @Override
                  public void onClick(View v) {
+                     final ringInventory up = new ringInventory(rs, txtCount.getText().toString());
                      ringInvList.set(position, up);
                      ringInventory test =  ringInvList.get(position);
-                     //adapter.notifyDataSetChanged();
+                     adapter.notifyDataSetChanged();
+                     Log.d(TAG, "STATE: up = " + up.getCount());
+                     Log.d("STATE", test.getCount());
                      dialog.dismiss();
-                     mListView.setAdapter(new RingInventoryListAdapter(getActivity(), R.layout.adapter_view_layout, ringInvList));
+                     saveData();
+                    // mListView.setAdapter(new RingInventoryListAdapter(getActivity(), R.layout.adapter_view_layout, ringInvList));
 
                  }
              });
@@ -124,8 +137,6 @@ public class inventory_tab extends Fragment {
      //mListView.setAdapter(new RingInventoryListAdapter(getActivity(), R.layout.adapter_view_layout, ringInvList));
 
      //populateList();
-
-     saveData();
 
        //Database tutorial
      /* editCount = getActivity().findViewById(R.id.editText_count);
@@ -271,11 +282,11 @@ public class inventory_tab extends Fragment {
         );*/
         //addData();
         //viewAll();
-
+        //saveData();
 
         return view;
     }
-    J
+
 
     private void editList(final ListView listView){
          listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -339,6 +350,7 @@ public class inventory_tab extends Fragment {
      SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(ringInvList);
+        Log.d(TAG,"STATE: save json = "+json);
         editor.putString("inventory", json);
         editor.apply();
     }
@@ -349,6 +361,7 @@ public class inventory_tab extends Fragment {
         String json = sharedPreferences.getString("inventory", null);
 
         Type type = new TypeToken<ArrayList<ringInventory>>() {}.getType();
+
         ringInvList = gson.fromJson(json, type);
 
         if (ringInvList == null){
@@ -427,7 +440,7 @@ public class inventory_tab extends Fragment {
      ringInventory gauge16732 = new ringInventory("16g 7/32in", "300");
      ringInventory gauge1814 = new ringInventory("18g 1/4in", "200");
      ringInventory gauge1818 = new ringInventory("18g 1/8in", "600");
-     ringInventory gauge18316 = new ringInventory("18g 1/8in", "5000");
+     ringInventory gauge18316 = new ringInventory("18g 3/16in", "5000");
      ringInventory gauge18516 = new ringInventory("18g 5/16in", "1000");
      ringInventory gauge18532 = new ringInventory("18g 5/32in", "500");
      ringInventory gauge18732 = new ringInventory("18g 7/32in", "700");

@@ -30,6 +30,7 @@ public class ringInventory implements Parcelable {
     }
 
 
+
     public ringInventory(Parcel in) {
         String[] data = new String[2];
         in.readStringArray(data);

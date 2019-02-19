@@ -1,13 +1,17 @@
 package c.kaitlyn.chainmaillecalculations.fragments;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +31,8 @@ import java.util.ArrayList;
 import c.kaitlyn.chainmaillecalculations.R;
 import c.kaitlyn.chainmaillecalculations.ringInventory;
 
+import static android.content.ContentValues.TAG;
+
 public class calc_tab extends Fragment {
     View view;
     //Code for calculate page
@@ -34,7 +40,7 @@ public class calc_tab extends Fragment {
 
     double length;
     int open, closed;
-    String gauge, ringSize, weave, errortight = "Too tight, choose another size";
+    String gauge, ringSize,ringSizeStr, weave, errortight = "Too tight, choose another size";
     String errorloose = "Too loose, choose another size";
     boolean isTight = false, isLoose = false;
     String dialog_title = "Error - improper size";
@@ -51,6 +57,7 @@ public class calc_tab extends Fragment {
         view = inflater.inflate(R.layout.calc_tab, container, false);
         //final ArrayList<ringInventory> ringInvList = (ArrayList<ringInventory>)getArguments().getSerializable("key");
 
+        loadData();
         //Code for calculate
         //Weave types
         Spinner weavespinner = view.findViewById(R.id.weavenames);
@@ -158,42 +165,55 @@ public class calc_tab extends Fragment {
                 switch(selectedSize) {
                     case "1/4":
                         ringSize = "1/4";
+                        ringSizeStr = "14";
                         break;
                     case "1/8":
                         ringSize = "1/8";
+                        ringSizeStr = "18";
                         break;
                     case "3/8":
                         ringSize = "3/8";
+                        ringSizeStr = "38";
                         break;
                     case "3/16":
                         ringSize = "3/16";
+                        ringSizeStr = "316";
                         break;
                     case "5/16":
                         ringSize = "5/16";
+                        ringSizeStr = "516";
                         break;
                     case "7/16":
                         ringSize = "7/16";
+                        ringSizeStr = "716";
                         break;
                     case "5/32":
                         ringSize = "5/32";
+                        ringSizeStr = "532";
                         break;
                     case "7/32":
                         ringSize = "7/32";
+                        ringSizeStr = "732";
                         break;
                     case "3/32":
                         ringSize = "3/32";
+                        ringSizeStr = "332";
                         break;
                     case "5/64":
                         ringSize = "5/64";
+                        ringSizeStr = "564";
                         break;
                     case "7/64":
                         ringSize = "7/64";
+                        ringSizeStr = "764";
                         break;
                     case "9/64":
                         ringSize = "9/64";
+                        ringSizeStr = "964";
                         break;
                     case "11/64":
                         ringSize = "11/64";
+                        ringSizeStr = "1164";
                         break;
 
                 }
@@ -763,21 +783,55 @@ public class calc_tab extends Fragment {
         final Button subbutton = view.findViewById(R.id.subtractButton);
         subbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 int total = open + closed;
 
-                String i;
-                String ring = gauge+"g " + ringSize + "in";
+                //String i;
+                String ring = gauge+"g "+ ringSize + "in";
+                String tempSize="", tempCount="";
+                Integer i=0,pos=0;
 
                 //loadData();
-                if(ringInvList.contains(ring)){
-                    i = "yes";
-                }else{
-                    i = "no";
+
+                //ringInventory ringTemp = new ringInventory();
+                for(ringInventory ringInv : ringInvList){
+                    if(ringInv.getRingSize().equals(ring)){
+                        ringInventory temp = ringInv;
+                        tempSize = ringInv.getRingSize();
+                        tempCount = ringInv.getCount();
+                        Log.d(TAG, "tempVal: ring count of "+tempSize+ " is " + tempCount);
+                        pos = i;
+                    }
+                    else{
+                        Log.d(TAG, "tempVal: Can't find");
+                    }
+                    i++;
                 }
+
+                /*if(ringInvList.contains(ring)){
+                    Log.d(TAG, "onClick: "+ ring + " true");
+                }else{
+                    Log.d(TAG, "onClick: "+ ring + " false");
+                }*/
+
+                Integer sub = Integer.parseInt(tempCount);
+                Integer fin = sub - total;
                 //int i = ringInvList.indexOf(ring);
-                TextView test = view.findViewById(R.id.testtext);
-                test.setText("(testing) Subtract: "+ total + " from " + ring + " index: " + i);
-                //saveData();
+               /* TextView test = view.findViewById(R.id.testtext);
+                test.setText("(testing) Subtract: "+ total + " from " + ring + " index: ");*/
+                ringInventory tempRing = new ringInventory(tempSize,Integer.toString(fin));
+                ringInvList.set(pos,tempRing);
+                Log.d(TAG, "SETNEW: total to subtract"+ Integer.toString(total));
+                Log.d(TAG, "SETNEW: setting the new ring " + tempRing.getRingSize()+ " to "+ Integer.toString(fin));
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Updating the value for "+tempSize +" to " + fin);
+                builder.setTitle("Update Value");
+                AlertDialog dialog = builder.create();
+
+                saveData();
+
             }
         });
 

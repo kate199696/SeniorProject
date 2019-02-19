@@ -111,7 +111,7 @@ private void populatelist(){
     ringInventory gauge16732 = new ringInventory("16g 7/32in", "300");
     ringInventory gauge1814 = new ringInventory("18g 1/4in", "200");
     ringInventory gauge1818 = new ringInventory("18g 1/8in", "600");
-    ringInventory gauge18316 = new ringInventory("18g 1/8in", "5000");
+    ringInventory gauge18316 = new ringInventory("18g 3/16in", "5000");
     ringInventory gauge18516 = new ringInventory("18g 5/16in", "1000");
     ringInventory gauge18532 = new ringInventory("18g 5/32in", "500");
     ringInventory gauge18732 = new ringInventory("18g 7/32in", "700");
