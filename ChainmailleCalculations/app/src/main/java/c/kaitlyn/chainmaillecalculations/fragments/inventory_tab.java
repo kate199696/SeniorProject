@@ -116,16 +116,17 @@ public class inventory_tab extends Fragment {
                      final ringInventory up = new ringInventory(rs, txtCount.getText().toString());
                      ringInvList.set(position, up);
                      ringInventory test =  ringInvList.get(position);
-                     adapter.notifyDataSetChanged();
+
                      Log.d(TAG, "STATE: up = " + up.getCount());
                      Log.d("STATE", test.getCount());
                      dialog.dismiss();
                      saveData();
+                     adapter.notifyDataSetChanged();
                     // mListView.setAdapter(new RingInventoryListAdapter(getActivity(), R.layout.adapter_view_layout, ringInvList));
 
                  }
              });
-
+                loadData();
              dialog.show();
 
          }

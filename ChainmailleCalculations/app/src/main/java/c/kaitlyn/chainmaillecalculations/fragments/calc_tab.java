@@ -783,7 +783,7 @@ public class calc_tab extends Fragment {
         final Button subbutton = view.findViewById(R.id.subtractButton);
         subbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                loadData();
                 int total = open + closed;
 
                 //String i;

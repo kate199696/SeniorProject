@@ -60,6 +60,8 @@ public class MainActivity extends FragmentActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*SharedPreferences sharedPreferences = this.getSharedPreferences("shared preferences", Context.MODE_PRIVATE);
+        sharedPreferences.edit().clear().commit();*/
 
         //populatelist();
         loadData();
